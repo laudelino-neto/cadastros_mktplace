@@ -138,32 +138,38 @@ public class ViewConsultaCategoria extends JFrame {
 		JButton btnExcluir = new JButton("Excluir");		
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
+				
+				int linhaSelecionada = tableCategorias.getSelectedRow();
+				
+				if (linhaSelecionada >= 0) {
 					
 					int opcao = JOptionPane.showConfirmDialog(contentPane, "Deseja realmente excluir", 
-							"Exclusão", JOptionPane.YES_NO_OPTION);					
-					int linhaSelecionada = tableCategorias.getSelectedRow();
+							"Exclusão", JOptionPane.YES_NO_OPTION);
+					
 					if (opcao == 0) {
-						if (linhaSelecionada >= 0) {											
-							CategoriaTableModel model = (CategoriaTableModel)tableCategorias.getModel();
-							Categoria categoriaSelecionada = model.getPor(linhaSelecionada);
-							try {
-								service.removerPor(categoriaSelecionada.getId());
-								List<Categoria> categoriasRestantes = service.listarPor(edtNome.getText());
-								model = new CategoriaTableModel(categoriasRestantes);
-								tableCategorias.setModel(model);								
-								JOptionPane.showMessageDialog(contentPane, "Categoria removida com sucesso");
-							}catch (Exception ex) {
-								linhaSelecionada = -1;
-								JOptionPane.showMessageDialog(contentPane, ex.getMessage());
-							}
-						}else {
-							JOptionPane.showMessageDialog(contentPane, "Selecione uma linha para exclusão");
+						
+						CategoriaTableModel model = (CategoriaTableModel)tableCategorias.getModel();
+						
+						Categoria categoriaSelecionada = model.getPor(linhaSelecionada);
+						
+						try {
+							service.removerPor(categoriaSelecionada.getId());
+							List<Categoria> categoriasRestantes = service.listarPor(edtNome.getText());
+							model = new CategoriaTableModel(categoriasRestantes);
+							tableCategorias.setModel(model);								
+							JOptionPane.showMessageDialog(contentPane, "Categoria removida com sucesso");
+						}catch (Exception ex) {
+							JOptionPane.showMessageDialog(contentPane, ex.getMessage());
 						}
+						
+						tableCategorias.clearSelection();
+						
 					}
-				}catch (Exception ex) {
-					JOptionPane.showMessageDialog(contentPane, ex.getMessage());
+					
+				}else {
+					JOptionPane.showMessageDialog(contentPane, "Selecione uma linha para exclusão");
 				}
+
 			}
 		});
 		btnExcluir.setBounds(113, 27, 89, 23);
