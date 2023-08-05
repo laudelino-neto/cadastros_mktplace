@@ -3,6 +3,7 @@ package br.com.senai.view.categoria;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -99,7 +100,8 @@ public class ViewConsultaCategoria extends JFrame {
 		lblCategoriasEncontradas.setBounds(9, 107, 319, 14);
 		contentPane.add(lblCategoriasEncontradas);
 		
-		tableCategorias = new JTable();
+		tableCategorias = new JTable(new CategoriaTableModel(new ArrayList<Categoria>()));
+		this.configurarTabela();
 		spTable = new JScrollPane(tableCategorias);
 		spTable.setBounds(10, 129, 628, 148);
 		contentPane.add(spTable);
@@ -178,8 +180,8 @@ public class ViewConsultaCategoria extends JFrame {
 		final int COLUNA_NOME = 1;
 		this.tableCategorias.getTableHeader().setReorderingAllowed(false);
 		this.tableCategorias.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.configurarColuna(COLUNA_ID, 90);
-		this.configurarColuna(COLUNA_NOME, 250);
+		this.configurarColuna(COLUNA_ID, 50);
+		this.configurarColuna(COLUNA_NOME, 550);
 	}
 	
 }	
