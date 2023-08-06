@@ -42,7 +42,7 @@ public class ViewConsultaCategoria extends JFrame {
 	public ViewConsultaCategoria() {		
 		setResizable(false);
 		setName("frmConsultaCategoria");
-		setTitle("Gerenciar Categoria - Listagem Alterado");
+		setTitle("Gerenciar Categoria - Listagem");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 664, 402);
 		contentPane = new JPanel();
