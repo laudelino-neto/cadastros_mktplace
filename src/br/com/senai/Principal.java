@@ -9,6 +9,8 @@ public class Principal {
 		new ViewConsultaCategoria().setVisible(true);
 		
 		System.out.println("Aplicação inicializada com sucesso");
+		
+		System.out.println("A aplicação está executando em segundo plano");
 
 	}
 
