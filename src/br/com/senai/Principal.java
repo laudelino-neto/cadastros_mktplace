@@ -7,6 +7,8 @@ public class Principal {
 	public static void main(String[] args) {
 		
 		new ViewConsultaCategoria().setVisible(true);
+		
+		System.out.println("Aplicação inicializada com sucesso");
 
 	}
 
