@@ -39,8 +39,7 @@ public class ViewConsultaCategoria extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ViewConsultaCategoria() {
-		System.out.println("Abrindo tela de consulta");
+	public ViewConsultaCategoria() {		
 		setResizable(false);
 		setName("frmConsultaCategoria");
 		setTitle("Gerenciar Categoria - Listagem");
