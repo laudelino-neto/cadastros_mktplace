@@ -8,6 +8,7 @@ public class Principal {
 		new ViewConsultaCategoria().setVisible(true);
 		System.out.println("Aplicação iniciada com sucesso");
 		System.out.println("Aplicação iniciada corretamente");
+		System.out.println("Alteração realizada no senai");
 	}
 
 }
